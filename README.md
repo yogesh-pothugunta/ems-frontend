@@ -1,70 +1,188 @@
-# Getting Started with Create React App
+# 🎨 Employee Management System — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+![Recharts](https://img.shields.io/badge/Recharts-22B5BF?style=for-the-badge&logo=recharts&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-## Available Scripts
+> A responsive and modern React.js frontend for the Employee Management System with Role-Based Access Control (RBAC). Different dashboards for Admin, HR, and Employee roles.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🌐 Live Website
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+https://ems-frontend-b5hv.vercel.app
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🔐 Login Credentials
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Role | Email | Password | Access |
+|------|-------|----------|--------|
+| 👑 Admin | admin@ems.com | password123 | Full access — manage employees, view reports, charts |
+| 👩💼 HR Manager | hr@ems.com | password123 | View employees, approve leaves, add performance reviews |
+| 👨💻 Employee | employee@ems.com | password123 | Own profile, apply leave, attendance, salary slip |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 👑 Admin Dashboard
+- ✅ View all employees with Search & Filter by name/department
+- ✅ Add new employees with full details
+- ✅ Edit employee information
+- ✅ Delete employees
+- ✅ Pagination (5 employees per page)
+- ✅ Interactive Charts — Employees by Department, Leave Status, Average Salary
+- ✅ Stats cards — Total Employees, Active Employees, Departments, Pending Leaves
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 👩💼 HR Dashboard
+- ✅ View all employees
+- ✅ Approve or Reject leave requests with pending badge count
+- ✅ View today's attendance records
+- ✅ Add performance reviews with star ratings (1–5)
+- ✅ View all performance reviews
 
-### `npm run eject`
+### 👨💻 Employee Portal
+- ✅ View own profile details
+- ✅ Attendance — Check-in and Check-out with history
+- ✅ Apply for leave (Sick / Casual / Annual)
+- ✅ View leave history with status (Pending / Approved / Rejected)
+- ✅ View salary slip with breakdown (Basic Pay, HRA, Allowances)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Technology | Purpose |
+|------------|---------|
+| React.js | Frontend Framework |
+| React Router DOM | Client-side Routing |
+| Axios | HTTP Requests to Backend API |
+| Recharts | Interactive Charts & Graphs |
+| localStorage | JWT Token Storage |
+| CSS-in-JS (inline styles) | Component Styling |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📁 Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+ems-frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── pages/
+│   │   ├── Login.js            # Login page (all roles)
+│   │   ├── AdminDashboard.js   # Admin dashboard
+│   │   ├── HRDashboard.js      # HR dashboard
+│   │   └── EmployeePortal.js   # Employee portal
+│   ├── App.js                  # Routes & role-based navigation
+│   ├── index.js                # React entry point
+│   └── index.css               # Global styles
+├── .gitignore
+├── package.json
+└── vercel.json                 # Vercel SPA routing config
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🔄 How Role-Based Navigation Works
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+Login Page
+    ↓
+User enters credentials → API call to backend
+    ↓
+JWT Token + Role received → stored in localStorage
+    ↓
+Role = "admin"    → Redirect to /admin    (Admin Dashboard)
+Role = "hr"       → Redirect to /hr       (HR Dashboard)
+Role = "employee" → Redirect to /employee (Employee Portal)
+    ↓
+Protected Routes → If wrong role tries to access → redirect to Login
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## ⚙️ Local Setup
 
-### Making a Progressive Web App
+### Prerequisites
+- Node.js v14+
+- Backend API running (see backend repo)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Steps
 
-### Advanced Configuration
+**1. Clone the repository**
+```bash
+git clone https://github.com/yogesh-pothugunta/ems-frontend.git
+cd ems-frontend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**2. Install dependencies**
+```bash
+npm install
+```
 
-### Deployment
+**3. Update API URL** (if running backend locally)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+In all page files, update:
+```js
+// Change this
+'https://ems-backend-en67.onrender.com'
 
-### `npm run build` fails to minify
+// To this (for local development)
+'http://localhost:5000'
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**4. Start the development server**
+```bash
+npm start
+```
+
+**5. Open in browser**
+```
+http://localhost:3000
+```
+
+---
+
+## 📸 Pages Overview
+
+| Page | Route | Access |
+|------|-------|--------|
+| Login | `/` | Public |
+| Admin Dashboard | `/admin` | Admin only |
+| HR Dashboard | `/hr` | HR only |
+| Employee Portal | `/employee` | Employee only |
+
+---
+
+## 🌍 Deployment
+
+| Service | Platform | URL |
+|---------|----------|-----|
+| Frontend | Vercel | https://ems-frontend-b5hv.vercel.app |
+| Backend API | Render | https://ems-backend-en67.onrender.com |
+| Database | Railway | MongoDB Cloud |
+
+---
+
+## 🔗 Related Repository
+
+- ⚙️ Backend API: [ems-backend](https://github.com/yogesh-pothugunta/ems-backend)
+- 📡 API Base URL: [https://ems-backend-en67.onrender.com](https://ems-backend-en67.onrender.com)
+
+---
+
+## 👨💻 Developer
+
+**Yogesh Pothugunta**
+- 📧 yogeshpothugunta07@gmail.com
+- 🔗 [LinkedIn](https://www.linkedin.com/in/yogesh-pothugunta-9a9a13403)
+- 🐙 [GitHub](https://github.com/yogesh-pothugunta)
+
+---
