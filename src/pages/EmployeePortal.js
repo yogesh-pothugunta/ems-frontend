@@ -30,28 +30,28 @@ function EmployeePortal() {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/employees/me', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/employees/me', { headers });
       setProfile(res.data);
     } catch (err) { console.error(err); }
   };
 
   const fetchSalary = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/salary/my', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/salary/my', { headers });
       setSalary(res.data);
     } catch (err) { console.error(err); }
   };
 
   const fetchLeaves = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/leaves/my', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/leaves/my', { headers });
       setLeaves(res.data);
     } catch (err) { console.error(err); }
   };
 
   const fetchAttendance = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/attendance/my', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/attendance/my', { headers });
       setAttendance(res.data);
       const today = new Date().toISOString().split('T')[0];
       const todayRecord = res.data.find(a => a.date === today);
@@ -62,7 +62,7 @@ function EmployeePortal() {
   const handleCheckIn = async () => {
     setAttLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/attendance/checkin', {}, { headers });
+      await axios.post('https://ems-backend-en67.onrender.com/api/attendance/checkin', {}, { headers });
       alert('Checked in successfully! ✅');
       fetchAttendance();
     } catch (err) { alert(err.response?.data?.message || 'Error'); }
@@ -72,7 +72,7 @@ function EmployeePortal() {
   const handleCheckOut = async () => {
     setAttLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/attendance/checkout', {}, { headers });
+      await axios.post('https://ems-backend-en67.onrender.com/api/attendance/checkout', {}, { headers });
       alert('Checked out successfully! ✅');
       fetchAttendance();
     } catch (err) { alert(err.response?.data?.message || 'Error'); }
@@ -82,7 +82,7 @@ function EmployeePortal() {
   const handleApplyLeave = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/leaves/apply', leaveForm, { headers });
+      await axios.post('https://ems-backend-en67.onrender.com/api/leaves/apply', leaveForm, { headers });
       alert('Leave applied successfully! ✅');
       setLeaveForm({ leaveType: 'sick', startDate: '', endDate: '', reason: '' });
       fetchLeaves();

@@ -26,35 +26,35 @@ function HRDashboard() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/employees', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/employees', { headers });
       setEmployees(res.data);
     } catch (err) { console.error(err); }
   };
 
   const fetchLeaves = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/leaves', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/leaves', { headers });
       setLeaves(res.data);
     } catch (err) { console.error(err); }
   };
 
   const fetchReviews = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/performance', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/performance', { headers });
       setReviews(res.data);
     } catch (err) { console.error(err); }
   };
 
   const fetchAttendance = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/attendance/today', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/attendance/today', { headers });
       setAttendance(res.data);
     } catch (err) { console.error(err); }
   };
 
   const handleLeaveStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/leaves/${id}`, { status }, { headers });
+      await axios.put(`https://ems-backend-en67.onrender.com/api/leaves/${id}`, { status }, { headers });
       alert(`Leave ${status}! ✅`);
       fetchLeaves();
     } catch (err) { alert('Error'); }
@@ -63,7 +63,7 @@ function HRDashboard() {
   const handleAddReview = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/performance', reviewForm, { headers });
+      await axios.post('https://ems-backend-en67.onrender.com/api/performance', reviewForm, { headers });
       alert('Review added! ✅');
       setReviewForm({ employeeId: '', rating: '5', comments: '', period: '', goals: '' });
       fetchReviews();

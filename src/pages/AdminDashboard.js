@@ -46,7 +46,7 @@ function AdminDashboard() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/employees', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/employees', { headers });
       setEmployees(res.data);
       setFiltered(res.data);
     } catch (err) { console.error(err); }
@@ -54,7 +54,7 @@ function AdminDashboard() {
 
   const fetchLeaves = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/leaves', { headers });
+      const res = await axios.get('https://ems-backend-en67.onrender.com/api/leaves', { headers });
       setLeaves(res.data);
     } catch (err) { console.error(err); }
   };
@@ -93,7 +93,7 @@ function AdminDashboard() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/employees', form, { headers });
+      await axios.post('https://ems-backend-en67.onrender.com/api/employees', form, { headers });
       alert('Employee created! ✅');
       setShowForm(false);
       resetForm();
@@ -106,7 +106,7 @@ function AdminDashboard() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.put(`http://localhost:5000/api/employees/${editEmployee._id}`, {
+      await axios.put(`https://ems-backend-en67.onrender.com/api/employees/${editEmployee._id}`, {
         department: form.department, position: form.position,
         salary: form.salary, phone: form.phone, address: form.address
       }, { headers });
@@ -121,7 +121,7 @@ function AdminDashboard() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/employees/${id}`, { headers });
+      await axios.delete(`https://ems-backend-en67.onrender.com/api/employees/${id}`, { headers });
       fetchEmployees();
     } catch (err) { alert('Error'); }
   };
