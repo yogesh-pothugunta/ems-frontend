@@ -22,9 +22,9 @@ https://ems-frontend-b5hv.vercel.app
 
 | Role | Email | Password | Access |
 |------|-------|----------|--------|
-| 👑 Admin | admin@ems.com | password123 | Full access — manage employees, view reports, charts |
-| 👩💼 HR Manager | hr@ems.com | password123 | View employees, approve leaves, add performance reviews |
-| 👨💻 Employee | employee@ems.com | password123 | Own profile, apply leave, attendance, salary slip |
+| 👑 Admin | admin@gmail.com | password123 | Full access — manage employees, view reports, charts |
+| 👩💼 HR Manager | hr@gamil.com | password123 | View employees, approve leaves, add performance reviews |
+| 👨💻 Employee | employee@gmail.com | password123 | Own profile, apply leave, attendance, salary slip |
 
 ---
 
